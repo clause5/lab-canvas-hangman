@@ -9,7 +9,9 @@ body{
   background: rgb(34,193,195);
   background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
 }
-
+.game-logo{
+  width:400px;
+}
 #start-game-button {
   border: 0;
   box-shadow: 0;
@@ -17,6 +19,7 @@ body{
   color: #fff;
   padding: 20px 40px;
   font-size: 30px;
+  font-weight: 700;
   border-radius: 5px;
 }
 
@@ -28,5 +31,5 @@ body{
     border-image: linear-gradient(180deg, rgb(0,143,104), rgb(250,224,66)) 1;
 }
 #left-section{
-  padding: 50px;
+  padding: 100px;
 }

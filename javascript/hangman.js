@@ -60,7 +60,6 @@ if (startGameButton) {
 
     hangman.secretWord = hangman.pickWord();
     hangmanCanvas = new HangmanCanvas(hangman.secretWord);
-
     hangmanCanvas.createBoard();
     hangmanCanvas.drawLines();
 
@@ -70,22 +69,27 @@ if (startGameButton) {
 document.addEventListener('keydown', event => {
     
     let pressedKey = event.key;
-    
-  if(hangman.secretWord.includes(pressedKey)){
-      hangman.addCorrectLetter(pressedKey);
-      hangmanCanvas.writeCorrectLetter(pressedKey);
-      
-      if(hangman.checkWinner()){
-        hangmanCanvas.winner();
-      }
+    if(!hangman.guessedLetters.includes(pressedKey) && !hangman.letters.includes(pressedKey))
+    {
 
-  }else{
-    hangman.addWrongLetter(pressedKey);
-    hangmanCanvas.writeWrongLetter(pressedKey, hangman.errorsLeft);
-    if(hangman.checkGameOver()){
-      hangmanCanvas.gameOver();
+      
+      if(hangman.secretWord.includes(pressedKey)){
+        hangman.addCorrectLetter(pressedKey);
+        hangmanCanvas.writeCorrectLetter(pressedKey);
+        
+        if(hangman.checkWinner()){
+          hangmanCanvas.winner();
+        }
+        
+      }else{
+        hangman.addWrongLetter(pressedKey);
+        hangmanCanvas.writeWrongLetter(pressedKey, hangman.errorsLeft);
+        if(hangman.checkGameOver()){
+          hangmanCanvas.gameOver();
+        }
+        
+      }
+      
     }
-   
-  }
     
 });

@@ -5,7 +5,6 @@ class HangmanCanvas {
   }
 
   createBoard() {
-    console.log('creating board')
     this.context.clearRect(0,0,1200, 800);
     this.drawLines();
   }
@@ -15,10 +14,10 @@ class HangmanCanvas {
     for(let i =0; i<this.secretWord.length ; i++){
       this.context.beginPath();
       this.context.moveTo(start,700);
-        this.context.lineTo(start +30, 700);
-        this.context.stroke();
-        start +=50;
-        this.context.closePath();
+      this.context.lineTo(start +30, 700);
+      this.context.stroke();
+      start +=50;
+      this.context.closePath();
     }
   }
 
@@ -26,24 +25,22 @@ class HangmanCanvas {
     for(let i =0 ; i < this.secretWord.length ; i++){
           if(letter === this.secretWord.charAt(i)){
             this.context.fillStyle ='green';
-            this.context.font = '42px Kirang Haerang, cursive';
-          this.context.fillText(`${letter}`, 255 + (50 * i) , 695 , 20);
+            this.context.font = '42px Righteous, cursive';
+            this.context.fillText(`${letter}`, 255 + (50 * i) , 695 , 20);
           }
     }
     
   }
 
   writeWrongLetter(letter, errorsLeft) {
-    if(errorsLeft  >= 0 ){this.context.clearRect(450,0,hangman.width, 300);
-    this.context.fillStyle ='crimson';
-    this.context.font = '42px Staatliches, cursive';
-    this.context.fillText(`Wrong Letters:`, 750, 150);
-
-    
-    this.context.font = '40px Kirang Haerang, cursive';
-      console.log(errorsLeft)
+    if(errorsLeft  >= 0 ){
+      this.context.clearRect(450,0,hangman.width, 300);
+      this.context.fillStyle ='crimson';
+      this.context.font = '42px Righteous, cursive';
+      this.context.fillText(`Wrong Letters:`, 750, 150);
       this.context.fillText(`${letter}`, 600 + (50 * (10 - errorsLeft)), 200,20);
       this.context.stroke();
+
       this.drawHangman(10 - errorsLeft);}
   }
 
@@ -132,7 +129,7 @@ class HangmanCanvas {
 
   gameOver() {
     this.context.drawImage(gameOverImg,550,250,500, 350);
-    this.context.font = '42px Staatliches, cursive';
+    this.context.font = '42px Righteous, cursive';
     this.context.fillText(`Secret Word: ${hangman.secretWord}`, 650, 650);
   }
 
